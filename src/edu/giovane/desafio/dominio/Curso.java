@@ -1,9 +1,8 @@
 package edu.giovane.desafio.dominio;
 
-public class Curso {
+// Classe Curso passa a ser filha da Conteudo (herda tudo de conteúdo)
+public class Curso extends Conteudo {
     // Atributos
-    private String titulo;
-    private String descricao;
     private int cargaHoraria;
 
 
@@ -11,22 +10,13 @@ public class Curso {
     public Curso() {
     }
 
+    // Pega o valor do XP_PADRÃO e realiza uma multiplicação ao criar um curso e chamar este método
+    @Override
+    public double calcularXP() {
+        return XP_PADRAO * cargaHoraria;
+    }
+
     //    GETTERS and SETTERS
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     public int getCargaHoraria() {
         return cargaHoraria;
@@ -41,8 +31,8 @@ public class Curso {
     @Override
     public String toString() {
         return "Curso{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
+                "titulo='" + getTitulo() + '\'' +
+                ", descricao='" + getDescricao() + '\'' +
                 ", cargaHoraria=" + cargaHoraria +
                 '}';
     }
